@@ -40,6 +40,18 @@ header nav a.active {
     font-weight: 700;
     border-bottom: 2px solid var(--colore-primario);
 }
+
+.btn-budget {
+    background-color: var(--colore-primario);
+    color: #ffffff;
+    border: none;
+}
+
+.btn-budget:hover {
+    background-color: #6a8572;
+    color: #ffffff;
+}
+
 /* #endregion navbar */
 
 

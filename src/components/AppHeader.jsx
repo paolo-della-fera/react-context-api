@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { useBudget } from "./context/BudgetContext";
 
 /* navbar */
 const menu = [
@@ -20,6 +21,7 @@ const menu = [
 ]
 
 export default function AppHeader() {
+    const { budgetMode, setBudgetMode } = useBudget();
 
     return (
         <header>
@@ -29,16 +31,21 @@ export default function AppHeader() {
                     <ul className="navbar-nav flex-row gap-3">
 
                         {
-                        menu.map(item =>
-                            <li className="nav-item" key={item.id}>
-                                <NavLink className="nav-link" to={item.path}>
-                                    {item.text}
-                                </NavLink>
-                            </li>
-                        )
+                            menu.map(item =>
+                                <li className="nav-item" key={item.id}>
+                                    <NavLink className="nav-link" to={item.path}>
+                                        {item.text}
+                                    </NavLink>
+                                </li>
+                            )
                         }
 
                     </ul>
+
+                    <button className="btn ms-auto btn-budget" onClick={() => setBudgetMode(!budgetMode)}>
+                        {budgetMode ? "Disattiva Modalità Budget" : "Attiva Modalità Budget"}
+                    </button>
+
                 </div>
             </nav>
 
