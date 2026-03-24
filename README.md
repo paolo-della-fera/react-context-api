@@ -31,7 +31,7 @@ Modificate la pagina dei prodotti:
 + Se budgetMode === true, mostrate solo i prodotti con price <= 30
 + Altrimenti, mostrare tutti i prodotti normalmente
 
-BONUS
+### BONUS
 
  Trasformare la modalità budget in un vero e proprio filtro:
 
