@@ -33,7 +33,7 @@ Modificate la pagina dei prodotti:
 
 ### BONUS
 
- Trasformare la modalità budget in un vero e proprio filtro:
+Trasformare la modalità budget in un vero e proprio filtro:
 
 + Trasformate il booleano budgetMode in un valore numerico maxPrice (es.30, 50ecc). Il valore di partenza deve essere null .
 + Nel componente navbar al posto del bottone inserite un campo input di tipo number. Questo campo deve essere legato al valore maxPrice del context

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { useBudget } from "../components/context/BudgetContext"
 
 
 export default function Prodotti() {
     const [prodotti, setProdotti] = useState([])
+    const { budgetMode } = useBudget()
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
@@ -11,6 +13,10 @@ export default function Prodotti() {
             .then(data => setProdotti(data))
     }, [])
 
+    const prodottiVisibili = budgetMode 
+        ? prodotti.filter(prodotto => prodotto.price <= 30)
+        : prodotti
+    
     return (
         <>
 
@@ -23,7 +29,7 @@ export default function Prodotti() {
 
                     <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 mt-5">
 
-                        {prodotti.map(prodotto =>
+                        {prodottiVisibili.map(prodotto =>
                             <div className="col" key={prodotto.id}>
                                 <Link to={`/prodotti/${prodotto.id}`} className="text-decoration-none">
 
