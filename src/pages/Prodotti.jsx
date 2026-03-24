@@ -5,7 +5,7 @@ import { useBudget } from "../components/context/BudgetContext"
 
 export default function Prodotti() {
     const [prodotti, setProdotti] = useState([])
-    const { budgetMode } = useBudget()
+    const { maxPrice  } = useBudget()
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
@@ -13,8 +13,8 @@ export default function Prodotti() {
             .then(data => setProdotti(data))
     }, [])
 
-    const prodottiVisibili = budgetMode 
-        ? prodotti.filter(prodotto => prodotto.price <= 30)
+    const prodottiVisibili = maxPrice  
+        ? prodotti.filter(prodotto => prodotto.price <= maxPrice )
         : prodotti
     
     return (

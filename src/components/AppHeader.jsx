@@ -21,7 +21,7 @@ const menu = [
 ]
 
 export default function AppHeader() {
-    const { budgetMode, setBudgetMode } = useBudget();
+    const { maxPrice, setMaxPrice } = useBudget();
 
     return (
         <header>
@@ -42,9 +42,17 @@ export default function AppHeader() {
 
                     </ul>
 
-                    <button className="btn ms-auto btn-budget" onClick={() => setBudgetMode(!budgetMode)}>
+                    {/* <button className="btn ms-auto btn-budget" onClick={() => setBudgetMode(!budgetMode)}>
                         {budgetMode ? "Disattiva Modalità Budget" : "Attiva Modalità Budget"}
-                    </button>
+                    </button> */}
+
+                    <input
+                        type="number"
+                        className="form-control ms-auto mt-2"
+                        placeholder="Prezzo massimo"
+                        value={maxPrice ?? ""}
+                        onChange={(e) => setMaxPrice(Number(e.target.value))}
+                    />
 
                 </div>
             </nav>
